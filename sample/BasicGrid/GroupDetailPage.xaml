@@ -66,11 +66,6 @@
             ItemClick="ItemView_ItemClick"
             RenderLib:Render.UsePhases="True"
             >
-            <GridView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <ItemsWrapGrid />
-                </ItemsPanelTemplate>
-            </GridView.ItemsPanel>
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <Grid Height="110" Width="480" Margin="10">
