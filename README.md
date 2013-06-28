@@ -13,6 +13,14 @@ This library attempts to make usage of this feature much simpler reducing the co
 
 ## Usage
 
+To use, two properties need to be set:
+ - Render.UsePhases="True" on the GridView / ListView
+ - Render.Phase="[numeric phase number]"
+
+0 means render initially, anything greater will be rendered as part of a future phase.
+
+Gaps are allowed between phase numbers - i.e. Phases 0, 3, 5 is legal.
+
 Sample usage (see the GroupDetailPage inside the sample for a working example):
 
     <GridView ... RenderLib:Render.UsePhases="True">
@@ -30,8 +38,8 @@ Sample usage (see the GroupDetailPage inside the sample for a working example):
                         <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="10,0,0,0"  RenderLib:Render.Phase="1">
                             <Image Width="50" Height="50" Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"  RenderLib:Render.Phase="5" />
                             <TextBlock Text="{Binding Title}" Style="{StaticResource TitleTextBlockStyle}" TextWrapping="NoWrap"/>
-                            <TextBlock **RenderLib:Render.Phase="2"** Text="{Binding Subtitle}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap" />
-                            <TextBlock **RenderLib:Render.Phase="3"** Text="{Binding Description}" Style="{StaticResource BodyTextBlockStyle}" MaxHeight="60"/>
+                            <TextBlock RenderLib:Render.Phase="2" Text="{Binding Subtitle}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap" />
+                            <TextBlock RenderLib:Render.Phase="3" Text="{Binding Description}" Style="{StaticResource BodyTextBlockStyle}" MaxHeight="60"/>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
